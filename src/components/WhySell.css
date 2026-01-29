@@ -1,0 +1,139 @@
+/* Section: off-white background (#fffcf1) used earlier */
+.why-sell {
+  padding: 72px 54px 90px;
+  background: #fffcf1;
+}
+
+.why-sell__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.why-sell__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Main icon: steel blue / cerulean (#2DB3C7) - reduced by 15% */
+.why-sell__icon-wrap {
+  width: 48px;
+  height: 48px;
+  color: #2DB3C7;
+  flex-shrink: 0;
+}
+
+.why-sell__title {
+  margin: 0;
+  font-size: clamp(1.575rem, 2.25vw, 2rem);
+  font-weight: 700;
+  color: #1A2B5B;
+  line-height: 1.25;
+}
+
+.why-sell__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #6B7280;
+  max-width: 432px;
+}
+
+/* Cards: 2x2 grid, white, rounded, shadow */
+.why-sell__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.why-sell__card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Card icon: teal-blue (#2DB3C7) - reduced by 15% */
+.why-sell__card-icon {
+  width: 41px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2DB3C7;
+  flex-shrink: 0;
+}
+
+.why-sell__card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1A2B5B;
+  line-height: 1.3;
+}
+
+.why-sell__card-desc {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #6B7280;
+}
+
+@media (max-width: 1100px) {
+  .why-sell {
+    padding: 72px 34px 90px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .why-sell__inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .why-sell__cards {
+    order: 2;
+  }
+
+  .why-sell__content {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-sell {
+    padding: 54px 20px 72px;
+  }
+
+  .why-sell__inner {
+    gap: 32px;
+  }
+
+  .why-sell__cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .why-sell__card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-sell {
+    padding: 54px 14px 72px;
+  }
+
+  .why-sell__cards {
+    grid-template-columns: 1fr;
+  }
+}

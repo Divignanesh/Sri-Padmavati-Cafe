@@ -1,0 +1,136 @@
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import './Hero.css'
+
+const badgeTexts = [
+  'Reno Partner',
+  'Listing & Selling Partner',
+  'Reno Consulting Partner',
+  'Renovations Partner',
+  'Reno Financial Partner',
+]
+
+const listItems = [
+  { label: 'Upfront Cost', accent: 'ZERO' },
+  { label: 'Compromise', accent: 'ZERO' },
+  { label: 'Stress', accent: 'ZERO' },
+]
+
+export default function Hero() {
+  const [badgeIndex, setBadgeIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBadgeIndex((prev) => (prev + 1) % badgeTexts.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <section id="home" className="hero">
+      <div className="hero__inner">
+        <div className="hero__content">
+          <motion.div
+            className="hero__badge"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <span className="hero__badge-accent">#Fix2Sell</span>
+            <span className="hero__badge-separator">Is Your</span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={badgeIndex}
+                className="hero__badge-text"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3 }}
+              >
+                {badgeTexts[badgeIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.div>
+          <motion.h1
+            className="hero__title"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Sell Your Home for{' '}
+            <span className="hero__title-highlight">8-10% More Than</span>{' '}
+            Current Market Price{' '}
+            <span className="hero__title-highlight">in Toronto & GTA</span>
+          </motion.h1>
+          <motion.p
+            className="hero__desc"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+          >
+            Transform your home's appeal with smart, value-boosting improvements all at zero upfront cost. From design to closing, we handle everything to get you maximum profit.
+          </motion.p>
+          <motion.ul
+            className="hero__list"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.08 } },
+              hidden: {},
+            }}
+          >
+            {listItems.map((item, i) => (
+              <motion.li
+                key={i}
+                className="hero__list-item"
+                variants={{
+                  hidden: { opacity: 0, x: -12 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.4 }}
+              >
+                <span className="hero__list-icon" aria-hidden>
+                  <CheckCircleIcon />
+                </span>
+                <span className="hero__list-accent">{item.accent}</span>
+                <span className="hero__list-label">{item.label}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+        <motion.div
+          id="inquire"
+          className="hero__card"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <div className="hero__card-inner">
+            <h3 className="hero__card-title">Inquire Now</h3>
+            <p className="hero__card-subtitle">Get your free home evaluation today</p>
+            <form className="hero__form" onSubmit={(e) => e.preventDefault()}>
+              <input type="text" placeholder="Full Name" className="hero__input" aria-label="Full name" />
+              <input type="email" placeholder="Email Address" className="hero__input" aria-label="Email" />
+              <input type="tel" placeholder="Phone Number" className="hero__input" aria-label="Phone" />
+              <button type="submit" className="hero__submit">
+                Get My Estimate
+              </button>
+              <p className="hero__form-note">
+                By submitting, you agree to our <a href="#privacy">Privacy Policy</a> and <a href="#terms">Terms of Service</a>.
+              </p>
+            </form>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+function CheckCircleIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="10" r="8.33" stroke="currentColor" strokeWidth="1.67" />
+      <path d="M7.5 10l1.67 1.67 3.33-3.34" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}

@@ -1,0 +1,236 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Reduced height by 10% */
+.header__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__nav--left {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.header__nav--right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.header__link {
+  font-size: 0.81rem;
+  font-weight: 500;
+  color: var(--color-navy-light);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.header__link:hover {
+  color: var(--color-orange);
+}
+
+.header__link--active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.header__logo {
+  flex-shrink: 0;
+}
+
+.header__logo-text {
+  font-size: 1.01rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+}
+
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 20px;
+  background: transparent;
+  color: var(--color-orange);
+  font-weight: 600;
+  font-size: 0.76rem;
+  border: 1px solid var(--color-orange);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.header__cta:hover {
+  background: var(--color-orange);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* Hamburger menu - hidden by default */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.header__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-navy);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.header__hamburger-line.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__hamburger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.header__hamburger-line.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.header__mobile-menu {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .header__inner {
+    padding: 11px 30px;
+    gap: 20px;
+  }
+
+  .header__nav {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header__nav--left .header__link:nth-child(n+3) {
+    display: none;
+  }
+
+  .header__nav--right .header__link {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__inner {
+    padding: 9px 16px;
+    gap: 12px;
+  }
+
+  /* Hide all nav links, show hamburger */
+  .header__nav--left,
+  .header__nav--right {
+    display: none;
+  }
+
+  .header__hamburger {
+    display: flex;
+  }
+
+  .header__logo-text {
+    font-size: 0.95rem;
+  }
+
+  /* Mobile menu styles */
+  .header__mobile-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .header__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 20px 24px;
+    gap: 4px;
+  }
+
+  .header__mobile-link {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-navy-light);
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .header__mobile-link:hover {
+    background: rgba(249, 140, 31, 0.08);
+    color: var(--color-orange);
+  }
+
+  .header__mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 14px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background: var(--color-orange);
+    border-radius: var(--radius-full);
+    transition: transform 0.2s;
+  }
+
+  .header__mobile-cta:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 375px) {
+  .header__inner {
+    padding: 8px 12px;
+  }
+
+  .header__logo-text {
+    font-size: 0.88rem;
+  }
+}

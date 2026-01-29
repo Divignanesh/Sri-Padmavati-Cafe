@@ -1,0 +1,280 @@
+.smart-way {
+  padding: 72px 54px 90px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.smart-way__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+/* Image container with offer badges - reduced by 15% */
+.smart-way__image {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 442px;
+}
+
+.smart-way__image-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.smart-way__house-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Offer badges */
+.smart-way__badge {
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  color: #1a1a1a;
+}
+
+.smart-way__badge--highest {
+  top: 8%;
+  right: -17px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 17px;
+  background: #333;
+  color: #fff;
+  border-radius: 14px;
+}
+
+.smart-way__badge--highest .smart-way__badge-label {
+  font-size: 0.675rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.smart-way__badge--highest .smart-way__badge-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.smart-way__badge--cash {
+  top: 28%;
+  right: -26px;
+  background: #fff;
+  padding: 7px 12px;
+}
+
+.smart-way__badge--new {
+  left: 5%;
+  top: 38%;
+  background: #fff;
+  padding: 7px 12px;
+}
+
+.smart-way__badge-avatar {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.smart-way__badge-avatar--small {
+  width: 24px;
+  height: 24px;
+}
+
+.smart-way__badge-avatar svg {
+  width: 15px;
+  height: 15px;
+}
+
+.smart-way__badge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.smart-way__badge-label {
+  font-size: 0.62rem;
+  color: #888;
+  font-weight: 400;
+}
+
+.smart-way__badge-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Content - text reduced by 10% */
+.smart-way__content {
+  flex: 1;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.smart-way__title {
+  margin: 0;
+  font-size: clamp(1.575rem, 2.7vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.smart-way__title-highlight {
+  color: var(--color-orange);
+}
+
+.smart-way__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.smart-way__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.smart-way__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.smart-way__item-accent {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.smart-way__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-orange);
+  border-radius: var(--radius-full);
+}
+
+.smart-way__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 14px 25px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-orange);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-button);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.smart-way__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.smart-way__cta svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 1100px) {
+  .smart-way {
+    padding: 72px 34px 90px;
+  }
+
+  .smart-way__inner {
+    gap: 40px;
+  }
+
+  .smart-way__image {
+    max-width: 357px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .smart-way__inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .smart-way__image {
+    max-width: 408px;
+  }
+
+  .smart-way__content {
+    max-width: none;
+    align-items: center;
+    text-align: center;
+  }
+
+  .smart-way__list {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .smart-way {
+    padding: 54px 20px 72px;
+  }
+
+  .smart-way__badge--highest {
+    right: 5%;
+    padding: 8px 12px;
+  }
+
+  .smart-way__badge--highest .smart-way__badge-value {
+    font-size: 1.125rem;
+  }
+
+  .smart-way__badge--cash {
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .smart-way {
+    padding: 54px 14px 72px;
+  }
+
+  .smart-way__badge {
+    transform: scale(0.85);
+  }
+}

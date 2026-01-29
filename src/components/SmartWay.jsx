@@ -1,0 +1,142 @@
+import { motion } from 'framer-motion'
+import { AnimatedSection } from './AnimatedSection'
+import './SmartWay.css'
+
+const benefits = [
+  { accent: "Sell for more", text: "— 8-10% above market average", icon: "chart" },
+  { accent: "Faster Sales", text: "— Properties move 4x faster post-reno", icon: "clock" },
+  { accent: "Risk-Free", text: "— Pay nothing until your home sells", icon: "shield" },
+  { accent: "Full Service", text: "— We handle all renovations for you", icon: "check" },
+]
+
+export default function SmartWay() {
+  return (
+    <section className="smart-way">
+      <AnimatedSection className="smart-way__inner">
+        <motion.div
+          className="smart-way__image"
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="smart-way__image-container">
+            <img 
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" 
+              alt="Beautiful home exterior"
+              className="smart-way__house-img"
+            />
+            {/* Offer badges */}
+            <div className="smart-way__badge smart-way__badge--highest">
+              <span className="smart-way__badge-label">Highest offer</span>
+              <span className="smart-way__badge-value">$452K</span>
+            </div>
+            <div className="smart-way__badge smart-way__badge--cash">
+              <div className="smart-way__badge-avatar">
+                <AvatarIcon />
+              </div>
+              <div className="smart-way__badge-info">
+                <span className="smart-way__badge-label">Cash offer</span>
+                <span className="smart-way__badge-value">$438K</span>
+              </div>
+            </div>
+            <div className="smart-way__badge smart-way__badge--new">
+              <div className="smart-way__badge-avatar smart-way__badge-avatar--small">
+                <AvatarIcon />
+              </div>
+              <div className="smart-way__badge-info">
+                <span className="smart-way__badge-label">New offer</span>
+                <span className="smart-way__badge-value">$446K</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div
+          className="smart-way__content"
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="smart-way__title">
+            The Smart Way to <span className="smart-way__title-highlight">Sell For More</span>
+          </h2>
+          <p className="smart-way__text">
+            Fix2Sell helps you increase your home's value before listing it for sale. We make the right upgrades to improve its appeal and selling price — without you paying any renovation costs upfront.
+          </p>
+          <ul className="smart-way__list">
+            {benefits.map((item, i) => (
+              <motion.li
+                key={i}
+                className="smart-way__item"
+                initial={{ opacity: 0, x: 16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+              >
+                <span className="smart-way__item-icon" aria-hidden>
+                  <BenefitIcon name={item.icon} />
+                </span>
+                <span>
+                  <span className="smart-way__item-accent">{item.accent}</span>
+                  {item.text}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+          <a href="#inquire" className="smart-way__cta">
+            Learn More About Fix2Sell
+            <ArrowIcon />
+          </a>
+        </motion.div>
+      </AnimatedSection>
+    </section>
+  )
+}
+
+function BenefitIcon({ name }) {
+  const icons = {
+    chart: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 17l5-5 4 4 5-9" />
+        <path d="M14 7h3v3" />
+      </svg>
+    ),
+    clock: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="10" cy="10" r="7.5" />
+        <path d="M10 5.5V10l3 1.5" />
+      </svg>
+    ),
+    shield: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 2L3 5.5v5c0 4.14 3.5 7.5 7 8.5 3.5-1 7-4.36 7-8.5v-5L10 2z" />
+        <path d="M7 10l2 2 4-4" />
+      </svg>
+    ),
+    check: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="10" cy="10" r="7.5" />
+        <path d="M7 10l2 2 4-4" />
+      </svg>
+    ),
+  }
+  return icons[name] || icons.check
+}
+
+function AvatarIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="12" cy="8" r="4" />
+      <path d="M12 14c-4 0-7 2-7 4.5V20h14v-1.5c0-2.5-3-4.5-7-4.5z" />
+    </svg>
+  )
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 10h11.67M10 4.17l5.83 5.83-5.83 5.83" />
+    </svg>
+  )
+}

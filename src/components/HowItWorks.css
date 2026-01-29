@@ -1,0 +1,227 @@
+.how-it-works {
+  padding: 72px 54px 90px;
+  background: #fffcf1;
+  overflow: hidden;
+}
+
+.how-it-works__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+.how-it-works__header {
+  text-align: center;
+  max-width: 554px;
+  margin: 0 auto;
+}
+
+.how-it-works__title {
+  margin: 0 0 13px;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.2;
+}
+
+.how-it-works__title-highlight {
+  color: var(--color-orange);
+}
+
+.how-it-works__subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  line-height: 1.5;
+}
+
+/* Timeline layout */
+.how-it-works__timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.how-it-works__card-wrapper {
+  position: relative;
+  padding: 0 10px;
+}
+
+/* Timeline connector lines (desktop) */
+.how-it-works__connector {
+  position: absolute;
+  top: 61px;
+  left: calc(50% + 26px);
+  width: calc(100% - 52px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-orange) 0%, rgba(249, 140, 31, 0.4) 100%);
+  z-index: 1;
+}
+
+/* Vertical line for mobile - hidden by default */
+.how-it-works__vertical-line-track {
+  display: none;
+}
+
+.how-it-works__vertical-line {
+  display: none;
+}
+
+.how-it-works__step-dot {
+  display: none;
+}
+
+/* Cards */
+.how-it-works__card {
+  padding: 20px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.how-it-works__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.12);
+}
+
+.how-it-works__card-step {
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--color-orange);
+  letter-spacing: 0.02em;
+}
+
+/* Letter boxes - D, E, A, L */
+.how-it-works__card-letter {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-orange);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: 1.575rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+}
+
+.how-it-works__card-title {
+  margin: 0;
+  font-size: 1.01rem;
+  font-weight: 600;
+  color: var(--color-navy-light);
+}
+
+.how-it-works__card-desc {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--color-gray);
+}
+
+@media (max-width: 1200px) {
+  .how-it-works__timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .how-it-works__connector {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .how-it-works {
+    padding: 72px 34px 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 54px 20px 72px;
+  }
+
+  .how-it-works__title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .how-it-works {
+    padding: 54px 14px 72px;
+  }
+
+  .how-it-works__timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .how-it-works__card-wrapper {
+    padding: 0 0 24px 20px;
+    position: relative;
+  }
+
+  .how-it-works__card-wrapper:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Vertical line track (background) */
+  .how-it-works__vertical-line-track {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: rgba(249, 140, 31, 0.15);
+    border-radius: 2px;
+    z-index: 1;
+  }
+
+  /* Animated vertical line */
+  .how-it-works__vertical-line {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, var(--color-orange) 0%, rgba(249, 140, 31, 0.6) 100%);
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Step dot indicator */
+  .how-it-works__step-dot {
+    display: block;
+    position: absolute;
+    left: -26px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-orange);
+    border-radius: 50%;
+    border: 3px solid #fffcf1;
+    z-index: 3;
+    box-shadow: 0 0 0 2px var(--color-orange);
+  }
+
+  .how-it-works__card {
+    padding: 18px;
+  }
+
+  .how-it-works__card:hover {
+    transform: none;
+  }
+}
