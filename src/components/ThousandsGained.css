@@ -1,17 +1,27 @@
 /* Section: light off-white/grey-blue background per design */
 .thousands-gained {
-  padding: 72px 54px 90px;
+  width: 100%;
+  padding: 72px 0 90px;
+  margin: 0;
   background: #F8F9FC;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .thousands-gained__inner {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 28px;
+  padding: 0 54px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 28px;
+  box-sizing: border-box;
+}
+
+.thousands-gained__inner:last-of-type {
+  margin-bottom: 0;
+  margin-top: 28px;
 }
 
 .thousands-gained__title {
@@ -35,13 +45,14 @@
   color: var(--color-navy);
 }
 
-/* Carousel: full-width edge-to-edge scroll with blur at ends */
+/* Carousel: full width of section, no side padding/margin */
 .thousands-gained__carousel-wrap {
   position: relative;
-  width: calc(100% + 108px);
-  margin-left: -54px;
-  margin-right: -54px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Edge fade overlays – white, smooth dissolve, responsive to screen */
@@ -90,7 +101,7 @@
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 7px 20px 14px;
+  padding: 7px 0 14px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -230,40 +241,31 @@
 
 @media (max-width: 1100px) {
   .thousands-gained {
-    padding: 72px 34px 90px;
+    padding: 72px 0 90px;
   }
 
-  .thousands-gained__carousel-wrap {
-    width: calc(100% + 68px);
-    margin-left: -34px;
-    margin-right: -34px;
+  .thousands-gained__inner {
+    padding: 0 34px;
   }
 }
 
 @media (max-width: 768px) {
   .thousands-gained {
-    padding: 54px 20px 72px;
+    padding: 54px 0 72px;
   }
 
-  .thousands-gained__carousel-wrap {
-    width: calc(100% + 40px);
-    margin-left: -20px;
-    margin-right: -20px;
+  .thousands-gained__inner {
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 640px) {
   .thousands-gained {
-    padding: 54px 14px 72px;
-  }
-
-  .thousands-gained__carousel-wrap {
-    width: calc(100% + 28px);
-    margin-left: -14px;
-    margin-right: -14px;
+    padding: 54px 0 72px;
   }
 
   .thousands-gained__inner {
+    padding: 0 14px;
     gap: 24px;
   }
 
