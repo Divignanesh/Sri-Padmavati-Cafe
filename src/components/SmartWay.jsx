@@ -21,11 +21,13 @@ export default function SmartWay() {
           transition={{ duration: 0.5 }}
         >
           <div className="smart-way__image-container">
-            <img 
-              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" 
-              alt="Beautiful home exterior"
-              className="smart-way__house-img"
-            />
+            <div className="smart-way__oval-inner">
+              <img 
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" 
+                alt="Beautiful home exterior - reel thumbnail"
+                className="smart-way__house-img"
+              />
+            </div>
             {/* Offer badges */}
             <div className="smart-way__badge smart-way__badge--highest">
               <span className="smart-way__badge-label">Highest offer</span>

@@ -1,5 +1,5 @@
 .reno-grader {
-  padding: 72px 54px 90px;
+  padding: var(--section-padding);
   background: #f5f7fa;
   overflow: hidden;
 }
@@ -17,6 +17,8 @@
   max-width: 468px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   gap: 22px;
 }
 
@@ -181,48 +183,26 @@
 
 @media (max-width: 768px) {
   .reno-grader {
-    padding: 54px 20px 72px;
+    padding: var(--section-padding-mobile);
   }
 
   .reno-grader__images {
-    min-height: 238px;
+    display: none;
   }
 
-  .reno-grader__image--main {
-    width: 255px;
-    height: 187px;
+  .reno-grader__inner {
+    justify-items: center;
   }
 
-  .reno-grader__image--secondary {
-    width: 170px;
-    height: 136px;
-    top: -17px;
-    right: 5%;
+  .reno-grader__content {
+    max-width: none;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
 @media (max-width: 640px) {
   .reno-grader {
-    padding: 54px 14px 72px;
-  }
-
-  .reno-grader__images {
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    min-height: auto;
-  }
-
-  .reno-grader__image--main,
-  .reno-grader__image--secondary {
-    position: relative;
-    top: auto;
-    right: auto;
-    left: auto;
-    bottom: auto;
-    width: 100%;
-    max-width: 306px;
-    height: auto;
-    aspect-ratio: 4/3;
+    padding: var(--section-padding-small);
   }
 }

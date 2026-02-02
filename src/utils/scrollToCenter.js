@@ -22,47 +22,60 @@ export function scrollToCenter(elementId, offset = 0) {
 }
 
 /**
+ * Get element id from href (supports "#id" and "/#id" from React Router Link)
+ */
+function getHashId(href) {
+  if (!href || typeof href !== 'string') return null
+  const idx = href.indexOf('#')
+  if (idx === -1) return null
+  const id = href.slice(idx + 1).trim()
+  return id || null
+}
+
+/**
  * Initializes centered scroll navigation for all hash links
+ * Handles both <a href="#section"> and <Link to="/#section"> (href="/#section")
  */
 export function initCenteredNavigation() {
   const handleClick = (e) => {
-    const target = e.target.closest('a[href^="#"]')
+    const target = e.target.closest('a[href*="#"]')
     if (!target) return
-    
+
     const href = target.getAttribute('href')
-    if (!href || href === '#') return
-    
-    const elementId = href.substring(1)
+    const elementId = getHashId(href)
+    if (!elementId) return
+
     const element = document.getElementById(elementId)
-    
     if (element) {
       e.preventDefault()
       scrollToCenter(elementId)
-      
-      // Update URL hash without jumping
-      history.pushState(null, '', href)
+      // Update URL hash without full navigation
+      const newHash = '#' + elementId
+      if (window.location.hash !== newHash) {
+        history.pushState(null, '', window.location.pathname + newHash)
+      }
     }
   }
-  
+
   document.addEventListener('click', handleClick)
-  
-  // Handle initial hash on page load
+
+  // Handle initial hash on page load (e.g. landing on /#contact or after navigating from another page)
   if (window.location.hash) {
-    const elementId = window.location.hash.substring(1)
-    // Small delay to ensure page is rendered
-    setTimeout(() => scrollToCenter(elementId), 100)
-  }
-  
-  // Handle browser back/forward with hash
-  window.addEventListener('hashchange', () => {
-    if (window.location.hash) {
-      const elementId = window.location.hash.substring(1)
-      scrollToCenter(elementId)
+    const elementId = getHashId(window.location.hash)
+    if (elementId) {
+      setTimeout(() => scrollToCenter(elementId), 100)
     }
-  })
-  
-  // Return cleanup function
+  }
+
+  // Handle browser back/forward with hash
+  const onHashChange = () => {
+    const elementId = getHashId(window.location.hash)
+    if (elementId) scrollToCenter(elementId)
+  }
+  window.addEventListener('hashchange', onHashChange)
+
   return () => {
     document.removeEventListener('click', handleClick)
+    window.removeEventListener('hashchange', onHashChange)
   }
 }

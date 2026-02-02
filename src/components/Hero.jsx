@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './Hero.css'
 
 const badgeTexts = [
-  'Reno Partner',
-  'Listing & Selling Partner',
-  'Reno Consulting Partner',
-  'Renovations Partner',
-  'Reno Financial Partner',
+  'Reno',
+  'Listing & Selling',
+  'Reno Consulting',
+  'Renovations',
+  'Reno Financial',
 ]
 
 const listItems = [
@@ -37,7 +37,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <span className="hero__badge-accent">#Fix2Sell</span>
-            <span className="hero__badge-separator">Is Your</span>
+            <span className="hero__badge-separator"> is your </span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={badgeIndex}
@@ -50,6 +50,7 @@ export default function Hero() {
                 {badgeTexts[badgeIndex]}
               </motion.span>
             </AnimatePresence>
+            <span className="hero__badge-separator"> partner</span>
           </motion.div>
           <motion.h1
             className="hero__title"

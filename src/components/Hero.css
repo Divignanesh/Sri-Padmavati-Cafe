@@ -11,16 +11,16 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 36px 54px;
-  display: flex;
+  padding: var(--section-padding);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 36px;
 }
 
 .hero__content {
-  flex: 1;
-  max-width: 522px;
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -45,7 +45,7 @@
 }
 
 .hero__badge-separator {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-white);
   font-size: 0.84rem;
   flex-shrink: 0;
 }
@@ -118,11 +118,10 @@
   color: var(--color-white);
 }
 
-/* Inquiry Card - made wider */
+/* Inquiry Card - same width as text column */
 .hero__card {
-  flex-shrink: 0;
   width: 100%;
-  max-width: 400px;
+  min-width: 0;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -151,6 +150,7 @@
 .hero__form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
 }
 
@@ -233,7 +233,7 @@
   }
 
   .hero__card {
-    max-width: 360px;
+    max-width: 350px;
   }
 }
 
@@ -246,14 +246,12 @@
   }
 
   .hero__inner {
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: 1fr;
     padding: 42px 20px 54px;
     gap: 36px;
   }
 
   .hero__content {
-    max-width: none;
     gap: 16px;
   }
 

@@ -115,6 +115,7 @@
 .thousands-gained__card {
   flex: 0 0 255px;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
@@ -273,8 +274,17 @@
     font-size: 1.8rem;
   }
 
+  /* Mobile: one card visible, card-by-card scroll */
+  .thousands-gained__carousel {
+    padding: 7px 12px 14px;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+  }
+
   .thousands-gained__card {
-    flex: 0 0 238px;
+    flex: 0 0 calc(100vw - 48px);
+    min-width: calc(100vw - 48px);
+    scroll-snap-align: center;
   }
 
   .thousands-gained__disclaimer {

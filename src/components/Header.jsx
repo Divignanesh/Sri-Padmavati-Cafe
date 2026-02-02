@@ -62,17 +62,22 @@ export default function Header() {
           </Link>
         </nav>
         
-        {/* Hamburger menu button for mobile */}
-        <button 
-          className="header__hamburger"
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-        >
-          <span className={`header__hamburger-line ${isMenuOpen ? 'open' : ''}`} />
-          <span className={`header__hamburger-line ${isMenuOpen ? 'open' : ''}`} />
-          <span className={`header__hamburger-line ${isMenuOpen ? 'open' : ''}`} />
-        </button>
+        {/* Mobile: Try Reno-Grade button beside hamburger */}
+        <div className="header__mobile-actions">
+          <Link to="/renograde" className="header__cta header__cta--mobile">
+            Try Reno-Grade
+          </Link>
+          <button 
+            className="header__hamburger"
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+          >
+            <span className={`header__hamburger-line ${isMenuOpen ? 'open' : ''}`} />
+            <span className={`header__hamburger-line ${isMenuOpen ? 'open' : ''}`} />
+            <span className={`header__hamburger-line ${isMenuOpen ? 'open' : ''}`} />
+          </button>
+        </div>
       </div>
       
       {/* Mobile menu overlay */}
@@ -99,15 +104,6 @@ export default function Header() {
                   )}
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: allNavLinks.length * 0.05 }}
-              >
-                <Link to="/renograde" className="header__mobile-cta" onClick={closeMenu}>
-                  Try Reno-Grade
-                </Link>
-              </motion.div>
             </nav>
           </motion.div>
         )}

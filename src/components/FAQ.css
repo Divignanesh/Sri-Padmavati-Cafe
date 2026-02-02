@@ -1,23 +1,23 @@
 .faq {
-  padding: 72px 54px 90px;
+  padding: var(--section-padding);
   background: #fffcf1;
 }
 
 @media (max-width: 1100px) {
   .faq {
-    padding: 72px 34px 90px;
+    padding: var(--section-padding-tablet);
   }
 }
 
 @media (max-width: 768px) {
   .faq {
-    padding: 54px 20px 72px;
+    padding: var(--section-padding-mobile);
   }
 }
 
 @media (max-width: 640px) {
   .faq {
-    padding: 54px 14px 72px;
+    padding: var(--section-padding-small);
   }
 }
 

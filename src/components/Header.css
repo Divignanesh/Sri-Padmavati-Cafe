@@ -87,6 +87,17 @@
   transform: translateY(-1px);
 }
 
+/* Mobile: CTA + hamburger group - hidden on desktop */
+.header__mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__cta--mobile {
+  flex-shrink: 0;
+}
+
 /* Hamburger menu - hidden by default */
 .header__hamburger {
   display: none;
@@ -156,10 +167,14 @@
     gap: 12px;
   }
 
-  /* Hide all nav links, show hamburger */
+  /* Hide all nav links, show Try Reno-Grade + hamburger */
   .header__nav--left,
   .header__nav--right {
     display: none;
+  }
+
+  .header__mobile-actions {
+    display: flex;
   }
 
   .header__hamburger {

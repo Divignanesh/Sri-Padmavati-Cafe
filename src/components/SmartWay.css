@@ -1,5 +1,5 @@
 .smart-way {
-  padding: 72px 54px 90px;
+  padding: var(--section-padding);
   background: var(--color-navy);
   color: var(--color-white);
   overflow: hidden;
@@ -10,29 +10,43 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 72px;
 }
 
-/* Image container with offer badges - reduced by 15% */
+/* Image container: long-mirror reel shape with offer badges */
 .smart-way__image {
   flex-shrink: 0;
   width: 100%;
-  max-width: 442px;
+  max-width: 380px;
 }
 
+/* Long mirror shape for reels: 9:16 ratio, 25% radius, no border */
 .smart-way__image-container {
   position: relative;
-  border-radius: var(--radius-lg);
   overflow: visible;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 25%;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.smart-way__oval-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 25%;
+  overflow: hidden;
 }
 
 .smart-way__house-img {
   width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
+  height: 100%;
   display: block;
-  aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center;
 }
 
 /* Offer badges */
@@ -126,13 +140,15 @@
   color: #1a1a1a;
 }
 
-/* Content - text reduced by 10% */
+/* Content - all text left-aligned */
 .smart-way__content {
   flex: 1;
   max-width: 520px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  text-align: left;
+  align-items: flex-start;
 }
 
 .smart-way__title {
@@ -216,7 +232,7 @@
 
 @media (max-width: 1100px) {
   .smart-way {
-    padding: 72px 34px 90px;
+    padding: var(--section-padding-tablet);
   }
 
   .smart-way__inner {
@@ -232,6 +248,7 @@
   .smart-way__inner {
     flex-direction: column;
     gap: 40px;
+    align-items: center;
   }
 
   .smart-way__image {
@@ -240,11 +257,6 @@
 
   .smart-way__content {
     max-width: none;
-    align-items: center;
-    text-align: center;
-  }
-
-  .smart-way__list {
     align-items: flex-start;
     text-align: left;
   }
@@ -252,7 +264,7 @@
 
 @media (max-width: 768px) {
   .smart-way {
-    padding: 54px 20px 72px;
+    padding: var(--section-padding-mobile);
   }
 
   .smart-way__badge--highest {
@@ -271,7 +283,7 @@
 
 @media (max-width: 640px) {
   .smart-way {
-    padding: 54px 14px 72px;
+    padding: var(--section-padding-small);
   }
 
   .smart-way__badge {

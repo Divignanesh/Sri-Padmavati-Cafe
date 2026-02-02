@@ -1,25 +1,26 @@
 .reno-grade-form {
-  padding: 72px 54px 90px;
+  padding: var(--section-padding);
   background: var(--color-white);
   overflow: hidden;
 }
 
+/* Two-column layout: form left, content right (previous UI) */
 .reno-grade-form__inner {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
 }
 
-/* Left: Form */
+/* Form: left column */
 .reno-grade-form__form-wrap {
-  position: sticky;
-  top: 100px;
+  width: 100%;
 }
 
 .reno-grade-form__form-box {
+  width: 100%;
   background: #F2F2F2;
   border-radius: 14px;
   padding: 32px 28px;
@@ -140,20 +141,23 @@
 }
 
 .reno-grade-form__submit {
+  align-self: center;
   width: 100%;
+  max-width: 320px;
   padding: 14px 24px;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-white);
-  background: #4285F4;
+  background: var(--color-orange);
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .reno-grade-form__submit:hover {
-  background: #3367D6;
+  background: #e07a00;
   transform: translateY(-1px);
 }
 
@@ -176,9 +180,14 @@
   color: var(--color-navy);
 }
 
-/* Right: Content */
+/* Content: right column, left-aligned text */
 .reno-grade-form__content {
-  padding-top: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.reno-grade-form__content .reno-grade-form__decide {
+  justify-content: flex-start;
 }
 
 .reno-grade-form__main-heading {
@@ -318,14 +327,16 @@
   margin-bottom: 0;
 }
 
+@media (max-width: 1100px) {
+  .reno-grade-form {
+    padding: var(--section-padding-tablet);
+  }
+}
+
 @media (max-width: 1024px) {
   .reno-grade-form__inner {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-
-  .reno-grade-form__form-wrap {
-    position: static;
   }
 
   .reno-grade-form__grid-2col {
@@ -335,7 +346,7 @@
 
 @media (max-width: 768px) {
   .reno-grade-form {
-    padding: 54px 20px 72px;
+    padding: var(--section-padding-mobile);
   }
 
   .reno-grade-form__form-box {
@@ -349,7 +360,7 @@
 
 @media (max-width: 640px) {
   .reno-grade-form {
-    padding: 54px 14px 72px;
+    padding: var(--section-padding-small);
   }
 
   .reno-grade-form__form-title {

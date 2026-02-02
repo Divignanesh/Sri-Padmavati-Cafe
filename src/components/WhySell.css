@@ -1,6 +1,6 @@
 /* Section: off-white background (#fffcf1) used earlier */
 .why-sell {
-  padding: 72px 54px 90px;
+  padding: var(--section-padding);
   background: #fffcf1;
 }
 
@@ -89,7 +89,7 @@
 
 @media (max-width: 1100px) {
   .why-sell {
-    padding: 72px 34px 90px;
+    padding: var(--section-padding-tablet);
   }
 }
 
@@ -130,7 +130,7 @@
 
 @media (max-width: 640px) {
   .why-sell {
-    padding: 54px 14px 72px;
+    padding: var(--section-padding-small);
   }
 
   .why-sell__cards {

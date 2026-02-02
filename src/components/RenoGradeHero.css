@@ -1,5 +1,5 @@
 .reno-grade-hero {
-  padding: 96px 54px 90px;
+  padding: 110px 54px 98px;
   background: #fbf5eb;
   text-align: center;
 }
@@ -49,7 +49,7 @@
 
 @media (max-width: 768px) {
   .reno-grade-hero {
-    padding: 96px 20px 72px;
+    padding: 88px 20px 80px;
   }
 
   .reno-grade-hero__title {
@@ -64,6 +64,6 @@
 
 @media (max-width: 640px) {
   .reno-grade-hero {
-    padding: 88px 14px 72px;
+    padding: 80px 14px 72px;
   }
 }
