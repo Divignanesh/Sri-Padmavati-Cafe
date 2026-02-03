@@ -92,8 +92,8 @@ export function HeroSection() {
                 />
               </div>
 
-              {/* Floating Card - Party Snackers (hidden on narrow screens to prevent overlap) */}
-              <div className="absolute -right-2 sm:right-2 bottom-1/4 hidden sm:block bg-card p-4 rounded-xl shadow-lg border border-border animate-fade-up" style={{ animationDelay: "0.6s" }}>
+              {/* Floating Card - Party Snackers, small, right bottom (hidden on narrow screens) */}
+              <div className="absolute right-2 sm:right-4 bottom-2 sm:bottom-4 hidden sm:block bg-card p-4 rounded-xl shadow-lg border border-border animate-fade-up" style={{ animationDelay: "0.6s" }}>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                     <PartyPopper className="w-5 h-5 text-primary" />
