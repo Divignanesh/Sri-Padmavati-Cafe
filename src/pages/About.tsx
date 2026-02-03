@@ -1,28 +1,28 @@
 import { Layout } from "@/components/Layout";
 import { JourneySection } from "@/components/JourneySection";
 import { CTASection } from "@/components/CTASection";
-import { Heart, Leaf, Users, Award } from "lucide-react";
+import { Heart, Leaf, Award, Users } from "lucide-react";
 
 const values = [
   {
     icon: Heart,
     title: "Passion for Food",
-    description: "Every dish we serve is crafted with love and attention to detail, using recipes perfected over generations.",
+    description: "Every dish we serve is crafted with love and attention to detail, with a passion for quality food and service.",
   },
   {
     icon: Leaf,
     title: "Fresh Ingredients",
-    description: "We source the freshest ingredients daily from local markets to ensure quality and taste in every bite.",
-  },
-  {
-    icon: Users,
-    title: "Customer First",
-    description: "Your satisfaction is our priority. We go above and beyond to exceed expectations and build lasting relationships.",
+    description: "We source the freshest ingredients to ensure quality and taste in every bite.",
   },
   {
     icon: Award,
+    title: "Quality First",
+    description: "Quality first in everything we do—from our cafe to party boxes and event stalls. We have a keen focus on quality.",
+  },
+  {
+    icon: Users,
     title: "Excellence",
-    description: "From hygiene to presentation, we maintain the highest standards in everything we do.",
+    description: "From hygiene to presentation, we maintain the highest standards and excellence in everything we do.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function About() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-secondary/30">
+      <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-secondary/40">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-primary font-medium text-sm uppercase tracking-wider">About Us</span>
@@ -38,8 +38,7 @@ export default function About() {
               Our Story of Serving Happiness
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              What started as a small dream of serving authentic flavors has grown into a 
-              comprehensive food service company trusted by thousands across Bangalore.
+              Shri Padmavathi Cafe started as a restaurant, then became Tealogy Cafe, followed by events and Party Snackers—trusted by many for quality food and celebrations in Bangalore.
             </p>
           </div>
         </div>
@@ -50,14 +49,14 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=750&fit=crop"
+                  src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=450&fit=crop"
                   alt="Cafe interior"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-background">
+              <div className="absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-background">
                 <img
                   src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop"
                   alt="Tea service"
@@ -67,31 +66,13 @@ export default function About() {
             </div>
 
             <div>
-              <span className="text-primary font-medium text-sm uppercase tracking-wider">Est. 2015</span>
+              <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Journey</span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mt-2 mb-6">
-                From Humble Beginnings to Culinary Excellence
+                Good Food, Great Moments
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Shri Padmavathi Cafe was born from a simple belief: good food brings people together. 
-                  In 2015, we opened our doors in a small corner of Bangalore with just a handful of 
-                  tables and a passion for authentic South Indian cuisine.
-                </p>
-                <p>
-                  Our specialty teas, particularly our signature "Tealogy" range, quickly became the 
-                  talk of the neighborhood. The aroma of freshly brewed chai and the warmth of our 
-                  hospitality drew crowds, and soon we were known as the go-to spot for a perfect cup.
-                </p>
-                <p>
-                  As demand grew, so did our ambitions. Customers began asking us to cater their events, 
-                  and we couldn't say no. From intimate birthday parties to grand corporate gatherings, 
-                  we expanded our services while never compromising on the quality that made us special.
-                </p>
-                <p>
-                  Today, we proudly serve over 50 corporate clients daily, manage Party Snackers for 
-                  celebrations across the city, and continue to innovate with new concepts like 
-                  exhibition food stalls. But at heart, we remain the same neighborhood cafe that 
-                  believes in serving happiness, one plate at a time.
+                  We started with a simple belief: great food brings people together. Today we bring that same heart to our cafe, to your events, and to every celebration—one plate at a time.
                 </p>
               </div>
             </div>

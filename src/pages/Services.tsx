@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { CTASection } from "@/components/CTASection";
 import { Link } from "react-router-dom";
-import { Coffee, Building2, PartyPopper, UtensilsCrossed, Store, ArrowRight, Check } from "lucide-react";
+import { Coffee, PartyPopper, Store, ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -9,70 +9,41 @@ const services = [
   {
     icon: Coffee,
     title: "Tealogy Cafe",
-    description: "Experience our signature cafe with a diverse range of specialty teas, coffees, and quick bites.",
+    description: "A relaxed spot in Yelahanka for chai, coffee, and bites—dine in or take away.",
     features: [
-      "15+ varieties of specialty teas",
-      "Fresh coffee and beverages",
-      "Authentic South Indian snacks",
+      "Specialty teas and coffees",
+      "Fresh beverages and snacks",
       "Cozy dine-in ambiance",
-      "Takeaway options available",
+      "Takeaway available",
     ],
     image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&h=400&fit=crop",
     href: "/about",
   },
   {
-    icon: Building2,
-    title: "Corporate Food Services",
-    description: "Reliable daily meal solutions designed for modern workplaces with diverse dietary needs.",
-    features: [
-      "Daily breakfast & lunch delivery",
-      "High-tea for meetings & events",
-      "Customizable meal plans",
-      "Dietary accommodations",
-      "Dedicated account manager",
-    ],
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop",
-    href: "/corporate-food",
-    featured: true,
-  },
-  {
     icon: PartyPopper,
     title: "Party Snackers",
-    description: "Curated snack boxes perfect for birthdays, celebrations, and corporate gifting.",
+    description: "Hand-packed snack boxes for birthdays, office dos, and special occasions—pick a ready box or ask for a custom one.",
     features: [
       "Customizable box contents",
       "Vegetarian & non-veg options",
       "Elegant packaging",
-      "Bulk order discounts",
-      "Same-day delivery available",
+      "Spillage Free Delivery",
+      "Hygienic Cooking Practices",
+      "On Time Service",
     ],
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
     href: "/party-snackers",
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Event Catering",
-    description: "Full-service catering for weddings, corporate events, and special occasions.",
-    features: [
-      "Customized menu planning",
-      "Live counters & stations",
-      "Professional service staff",
-      "Setup & cleanup included",
-      "Events of all sizes",
-    ],
-    image: "https://images.unsplash.com/photo-1555244162-803834f70033?w=600&h=400&fit=crop",
-    href: "/contact",
+    featured: true,
   },
   {
     icon: Store,
-    title: "Exhibition Food Stalls",
-    description: "Professional food stall setup for exhibitions, trade shows, and public events.",
+    title: "Food Stalls",
+    description: "We bring our kitchen to your venue—college fests, exhibitions, and private events.",
     features: [
-      "Complete stall setup",
-      "Branded presentation",
-      "Trained serving staff",
-      "High-volume service",
-      "Flexible menu options",
+      "Stall setup at your venue",
+      "Colleges, events, exhibitions",
+      "Trained staff",
+      "Flexible menus and timelines",
     ],
     image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop",
     href: "/contact",
@@ -83,16 +54,15 @@ export default function Services() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-secondary/30">
+      <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-secondary/40">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-primary font-medium text-sm uppercase tracking-wider">Our Services</span>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mt-2 mb-6">
-              Complete Food Solutions for Every Need
+              Cafe, Party Boxes & Food Stalls
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              From our cozy cafe to large-scale corporate catering, we offer a comprehensive 
-              range of food services tailored to your specific requirements.
+              Three ways to enjoy what we do: drop by the cafe, order a party box, or have us at your next event.
             </p>
           </div>
         </div>
@@ -118,11 +88,6 @@ export default function Services() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  {service.featured && (
-                    <div className="absolute top-4 left-4 bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-full">
-                      Most Popular
-                    </div>
-                  )}
                 </div>
 
                 {/* Content */}

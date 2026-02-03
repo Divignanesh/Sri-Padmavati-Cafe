@@ -18,12 +18,12 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 25 30% 12%;
 
-    /* Terracotta - warm, inviting primary */
-    --primary: 16 65% 45%;
-    --primary-foreground: 40 40% 98%;
+    /* Primary - brand red */
+    --primary: 348 100% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Cream secondary */
-    --secondary: 38 35% 92%;
+    /* Secondary - soft yellow */
+    --secondary: 58 100% 86%;
     --secondary-foreground: 25 30% 15%;
 
     /* Soft warm muted */
@@ -39,15 +39,15 @@ All colors MUST be HSL.
 
     --border: 35 25% 88%;
     --input: 35 25% 88%;
-    --ring: 16 65% 45%;
+    --ring: 348 100% 35%;
 
     --radius: 0.5rem;
 
-    /* Custom brand colors */
-    --warm-brown: 25 35% 25%;
-    --cream: 40 45% 95%;
-    --terracotta: 16 65% 45%;
-    --terracotta-light: 16 50% 60%;
+    /* Custom brand colors (aligned with primary) */
+    --warm-brown: 348 100% 35%;
+    --cream: 0 0% 98%;
+    --terracotta: 348 100% 35%;
+    --terracotta-light: 348 80% 45%;
     --gold: 38 70% 55%;
     --sage: 120 15% 45%;
     --charcoal: 25 20% 18%;
@@ -63,11 +63,11 @@ All colors MUST be HSL.
     --popover: 25 20% 10%;
     --popover-foreground: 40 30% 95%;
 
-    --primary: 16 60% 55%;
-    --primary-foreground: 25 30% 10%;
+    --primary: 348 100% 40%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 20% 18%;
-    --secondary-foreground: 40 30% 95%;
+    --secondary: 58 80% 20%;
+    --secondary-foreground: 58 100% 86%;
 
     --muted: 25 15% 20%;
     --muted-foreground: 35 15% 65%;
@@ -80,12 +80,12 @@ All colors MUST be HSL.
 
     --border: 25 15% 22%;
     --input: 25 15% 22%;
-    --ring: 16 60% 55%;
+    --ring: 348 100% 40%;
 
-    --warm-brown: 25 25% 70%;
-    --cream: 40 20% 15%;
-    --terracotta: 16 60% 55%;
-    --terracotta-light: 16 50% 65%;
+    --warm-brown: 348 100% 40%;
+    --cream: 0 0% 98%;
+    --terracotta: 348 100% 40%;
+    --terracotta-light: 348 80% 50%;
     --gold: 38 65% 50%;
     --sage: 120 12% 55%;
     --charcoal: 40 25% 90%;

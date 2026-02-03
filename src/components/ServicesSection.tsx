@@ -1,41 +1,27 @@
 import { Link } from "react-router-dom";
-import { Coffee, Building2, PartyPopper, UtensilsCrossed, Store, ArrowRight } from "lucide-react";
+import { Coffee, PartyPopper, Store, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
     icon: Coffee,
     title: "Tealogy Cafe",
-    description: "Our signature cafe offering a diverse range of specialty teas, coffees, and quick bites in a cozy ambiance.",
+    description: "Tea, coffee, and quick bites in a relaxed setting—visit us in Yelahanka.",
     href: "/about",
     image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=300&fit=crop",
   },
   {
-    icon: Building2,
-    title: "Corporate Food",
-    description: "Reliable daily meal solutions for offices, including breakfast, lunch, and high-tea services.",
-    href: "/corporate-food",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop",
-    featured: true,
-  },
-  {
     icon: PartyPopper,
     title: "Party Snackers",
-    description: "Curated party boxes with delicious snacks perfect for birthdays, celebrations, and gifting.",
-    href: "/party-snackers",
+    description: "Snack boxes for every occasion—choose a box or get one made to order.",
+    href: "/party-snackers#boxes",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Event Catering",
-    description: "Full-service catering for weddings, corporate events, and special occasions with customized menus.",
-    href: "/services",
-    image: "https://images.unsplash.com/photo-1555244162-803834f70033?w=400&h=300&fit=crop",
+    featured: true,
   },
   {
     icon: Store,
     title: "Food Stalls",
-    description: "Professional food stall setup for exhibitions, trade shows, and public events.",
+    description: "We come to you—fests, exhibitions, and events with a full stall setup.",
     href: "/services",
     image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
   },
@@ -43,7 +29,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-20 lg:py-28 bg-secondary/30">
+    <section id="services" className="py-20 lg:py-28 bg-secondary/40 border-t border-primary/10">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -52,8 +38,7 @@ export function ServicesSection() {
             Our Services
           </h2>
           <p className="text-muted-foreground">
-            From our cozy cafe to large-scale corporate catering, we've got all your food needs covered 
-            with quality, consistency, and care.
+            Cafe, party boxes, and event stalls—one team, one standard.
           </p>
         </div>
 
@@ -82,11 +67,6 @@ export function ServicesSection() {
                       <service.icon className="w-5 h-5 text-primary-foreground" />
                     </div>
                   </div>
-                  {service.featured && (
-                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
-                      Most Popular
-                    </div>
-                  )}
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-serif font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
