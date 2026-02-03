@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "node scripts/fetch-data.js && vite build",
+    "preview": "vite preview",
+    "fetch-data": "node scripts/fetch-data.js"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",

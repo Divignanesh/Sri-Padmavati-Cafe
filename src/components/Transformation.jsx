@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AnimatedSection } from './AnimatedSection'
+import { useData } from '../context/DataContext'
 import './Transformation.css'
 
 const AUTO_SCROLL_INTERVAL_MS = 3000
 
-const slides = [
+const defaultSlides = [
   {
     label: 'Kitchen Transformation',
     before: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=60',
@@ -55,6 +56,8 @@ function ArrowRightIcon() {
 }
 
 export default function Transformation() {
+  const { transformation: dataSlides } = useData()
+  const slides = Array.isArray(dataSlides) && dataSlides.length > 0 ? dataSlides : defaultSlides
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const goPrev = () => setCurrentIndex((i) => (i === 0 ? slides.length - 1 : i - 1))

@@ -1,11 +1,15 @@
 import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { AnimatedSection } from './AnimatedSection'
+import { useData } from '../context/DataContext'
 import './CTA.css'
 
 export default function CTA() {
   const location = useLocation()
-  const inquireHref = location.pathname === '/renograde' ? '/#inquire' : '#inquire'
+  const { global: globalData } = useData()
+  const bookAMeetingUrl = (globalData && globalData.bookAMeetingUrl) || ''
+  const bookAMeetingLabel = (globalData && globalData.bookAMeetingLabel) || 'Book A Meeting'
+  const inquireHref = bookAMeetingUrl || (location.pathname === '/renograde' ? '/#inquire' : '#inquire')
 
   return (
     <AnimatedSection className="cta">
@@ -38,7 +42,7 @@ export default function CTA() {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >
-          Book A Meeting
+          {bookAMeetingLabel}
           <ArrowIcon />
         </motion.a>
       </div>

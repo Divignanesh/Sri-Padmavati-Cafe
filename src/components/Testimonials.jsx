@@ -1,42 +1,21 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { AnimatedSection } from './AnimatedSection'
+import { useData } from '../context/DataContext'
 import './Testimonials.css'
 
-const testimonials = [
-  {
-    id: 1,
-    quote: "\"To them it's not about the sale, it's about trying to help families move on. They treated me like I was their only client, and I had that one-on-one attention.\"",
-    name: "Charlisa Boyd",
-    location: "Sold to Opendoor in Raleigh, NC",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&h=200&q=80",
-  },
-  {
-    id: 2,
-    quote: "\"Opendoor's offer came in right near our appraisal, but we never had to list the house or do showings. For the kind of value Opendoor gives you, it's just a no-brainer.\"",
-    name: "Adam Leon",
-    location: "Sold to Opendoor in Phoenix, AZ",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
-  },
-  {
-    id: 3,
-    quote: "\"The whole process was incredibly smooth. Fix2Sell handled everything from renovations to staging. We sold for 15% more than expected!\"",
-    name: "Sarah Mitchell",
-    location: "Sold in Austin, TX",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&h=200&q=80",
-  },
-  {
-    id: 4,
-    quote: "\"I was skeptical at first, but the team delivered beyond my expectations. The renovation suggestions were spot-on and the ROI was amazing.\"",
-    name: "Michael Chen",
-    location: "Sold in San Francisco, CA",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&h=200&q=80",
-  },
+const defaultTestimonials = [
+  { id: 1, quote: "\"To them it's not about the sale, it's about trying to help families move on. They treated me like I was their only client, and I had that one-on-one attention.\"", name: "Charlisa Boyd", location: "Sold to Opendoor in Raleigh, NC", image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&h=200&q=80" },
+  { id: 2, quote: "\"Opendoor's offer came in right near our appraisal, but we never had to list the house or do showings. For the kind of value Opendoor gives you, it's just a no-brainer.\"", name: "Adam Leon", location: "Sold to Opendoor in Phoenix, AZ", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80" },
+  { id: 3, quote: "\"The whole process was incredibly smooth. Fix2Sell handled everything from renovations to staging. We sold for 15% more than expected!\"", name: "Sarah Mitchell", location: "Sold in Austin, TX", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&h=200&q=80" },
+  { id: 4, quote: "\"I was skeptical at first, but the team delivered beyond my expectations. The renovation suggestions were spot-on and the ROI was amazing.\"", name: "Michael Chen", location: "Sold in San Francisco, CA", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&h=200&q=80" },
 ]
 
 export default function Testimonials() {
+  const { testimonials: dataTestimonials } = useData()
+  const testimonials = Array.isArray(dataTestimonials) && dataTestimonials.length > 0 ? dataTestimonials : defaultTestimonials
   const scrollRef = useRef(null)
-  
+
   // Scroll 2 cards at a time (card width 290px + gap 20px = 310px each, 2 cards = 620px)
   const scrollAmount = 620
   
@@ -86,8 +65,8 @@ export default function Testimonials() {
         </div>
         
         <div className="testimonials__cards" ref={scrollRef}>
-          {testimonials.map((item) => (
-            <article key={item.id} className="testimonials__card">
+          {testimonials.map((item, idx) => (
+            <article key={item.id ?? idx} className="testimonials__card">
               <div className="testimonials__card-photo">
                 <img src={item.image} alt={item.name} />
               </div>

@@ -13,6 +13,7 @@ import RenoGrader from './components/RenoGrader'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import RenoGradePage from './pages/RenoGradePage'
+import RefreshPage from './pages/RefreshPage'
 import { initCenteredNavigation } from './utils/scrollToCenter'
 import './App.css'
 
@@ -61,6 +62,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/renograde" element={<RenoGradePage />} />
+      <Route path="/refresh" element={<RefreshPage />} />
     </Routes>
   )
 }

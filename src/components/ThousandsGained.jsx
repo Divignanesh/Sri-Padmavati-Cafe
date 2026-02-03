@@ -1,116 +1,15 @@
 import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useData } from '../context/DataContext'
 import './ThousandsGained.css'
 
-const CARDS_DATA = [
-  {
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$44,605',
-    profit: '$30,395',
-    location: 'Riverside',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$38,200',
-    profit: '$41,800',
-    location: 'Fremont',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$52,100',
-    profit: '$28,900',
-    location: 'Panorama City',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$41,350',
-    profit: '$35,650',
-    location: 'Costa Mesa',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$61,200',
-    profit: '$48,800',
-    location: 'San Francisco',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$35,900',
-    profit: '$27,100',
-    location: 'Oakland',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$44,605',
-    profit: '$30,395',
-    location: 'Riverside',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$38,200',
-    profit: '$41,800',
-    location: 'Fremont',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$52,100',
-    profit: '$28,900',
-    location: 'Panorama City',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$41,350',
-    profit: '$35,650',
-    location: 'Costa Mesa',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$61,200',
-    profit: '$48,800',
-    location: 'San Francisco',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$35,900',
-    profit: '$27,100',
-    location: 'Oakland',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$44,605',
-    profit: '$30,395',
-    location: 'Riverside',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$38,200',
-    profit: '$41,800',
-    location: 'Fremont',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$52,100',
-    profit: '$28,900',
-    location: 'Panorama City',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$41,350',
-    profit: '$35,650',
-    location: 'Costa Mesa',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$61,200',
-    profit: '$48,800',
-    location: 'San Francisco',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=533&q=70',
-    renovation: '$35,900',
-    profit: '$27,100',
-    location: 'Oakland',
-  },
+const defaultCards = [
+  { image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&h=533&q=70', renovation: '$44,605', profit: '$30,395', location: 'Riverside' },
+  { image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&h=533&q=70', renovation: '$38,200', profit: '$41,800', location: 'Fremont' },
+  { image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=400&h=533&q=70', renovation: '$52,100', profit: '$28,900', location: 'Panorama City' },
+  { image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&h=533&q=70', renovation: '$41,350', profit: '$35,650', location: 'Costa Mesa' },
+  { image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&h=533&q=70', renovation: '$61,200', profit: '$48,800', location: 'San Francisco' },
+  { image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&h=533&q=70', renovation: '$35,900', profit: '$27,100', location: 'Oakland' },
 ]
 
 function MapPinIcon() {
@@ -125,7 +24,11 @@ function MapPinIcon() {
 }
 
 export default function ThousandsGained() {
+  const { thousandsGained: dataCards, global: globalData } = useData()
+  const cards = Array.isArray(dataCards) && dataCards.length > 0 ? dataCards : defaultCards
   const scrollRef = useRef(null)
+  const ctaHref = (globalData && globalData.unlockPotentialUrl) || '#inquire'
+  const ctaLabel = (globalData && globalData.unlockPotentialLabel) || 'CLICK TO UNLOCK YOUR HOME POTENTIAL'
 
   useEffect(() => {
     const el = scrollRef.current
@@ -167,7 +70,7 @@ export default function ThousandsGained() {
           role="region"
           aria-label="Homeowner results carousel"
         >
-          {CARDS_DATA.map((card, i) => (
+          {cards.map((card, i) => (
             <article key={i} className="thousands-gained__card">
               <div className="thousands-gained__card-image-wrap">
                 <img
@@ -215,14 +118,14 @@ export default function ThousandsGained() {
         </motion.p>
 
         <motion.a
-          href="#inquire"
+          href={ctaHref}
           className="thousands-gained__cta"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          CLICK TO UNLOCK YOUR HOME POTENTIAL
+          {ctaLabel}
         </motion.a>
       </div>
     </section>

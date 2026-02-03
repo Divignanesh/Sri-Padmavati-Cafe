@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AnimatedSection } from './AnimatedSection'
+import { useData } from '../context/DataContext'
 import './FAQ.css'
 
-const items = [
+const defaultItems = [
   { q: 'Do I need to pay anything upfront?', a: 'No. Fix2Sell covers all renovation costs upfront. You only pay when your home sells, from the sale proceeds.' },
   { q: "What if my home doesn't sell for more after the upgrades?", a: 'We work with you to set realistic targets. Our Reno-Grader and market analysis help ensure upgrades are chosen for maximum ROI in your area.' },
   { q: 'Who manages the contractors and renovation work?', a: 'We do. Fix2Sell coordinates all contractors, timelines, and quality so you can focus on your move.' },
@@ -13,6 +14,8 @@ const items = [
 ]
 
 export default function FAQ() {
+  const { faq: dataFaq } = useData()
+  const items = Array.isArray(dataFaq) && dataFaq.length > 0 ? dataFaq : defaultItems
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
