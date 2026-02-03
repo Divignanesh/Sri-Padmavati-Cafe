@@ -86,8 +86,8 @@ export function HeroSection() {
               <div className="absolute inset-4 sm:inset-6 lg:inset-8 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 rotate-6" />
               <div className="absolute inset-4 sm:inset-6 lg:inset-8 rounded-3xl bg-secondary overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&h=600&fit=crop"
-                  alt="Party boxes with food and snacks"
+                  src="/image.png"
+                  alt="Party Snackers — party boxes with snacks and celebration"
                   className="w-full h-full object-cover"
                 />
               </div>
