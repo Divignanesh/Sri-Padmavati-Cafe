@@ -141,6 +141,7 @@ async function main() {
   if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true })
   fs.writeFileSync(DATA_JSON, JSON.stringify(withDriveLinks, null, 2), 'utf8')
   console.log('Wrote', DATA_JSON)
+  process.exit(0)
 }
 
 main().catch((err) => {
